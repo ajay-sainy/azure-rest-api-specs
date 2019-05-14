@@ -4,10 +4,10 @@
 
 This is the AutoRest configuration file for Managed Services.
 
-
-
 ---
+
 ## Getting Started
+
 To build the SDK for ManagedServices, simply [Install AutoRest](https://aka.ms/autorest/install) and in this folder, run:
 
 > `autorest`
@@ -15,21 +15,29 @@ To build the SDK for ManagedServices, simply [Install AutoRest](https://aka.ms/a
 To see additional help and options, run:
 
 > `autorest --help`
+
 ---
 
 ## Configuration
 
-
-
 ### Basic Information
+
 These are the global settings for the ManagedServices API.
 
 ``` yaml
 openapi-type: arm
-tag: package-2018-06-preview
+tag: package-preview-2019-04
 ```
 
 
+### Tag: package-preview-2019-04
+
+These settings apply only when `--tag=package-preview-2019-04` is specified on the command line.
+
+```yaml $(tag) == 'package-preview-2019-04'
+input-file:
+  - Microsoft.ManagedServices/preview/2019-04-01-preview/managedservices.json
+```
 ### Tag: package-2018-06-preview
 
 These settings apply only when `--tag=package-2018-06-preview` is specified on the command line.
@@ -40,8 +48,8 @@ input-file:
 ```
 
 ---
-# Code Generation
 
+# Code Generation
 
 ## Swagger to SDK
 
@@ -59,7 +67,6 @@ swagger-to-sdk:
     after_scripts:
       - bundle install && rake arm:regen_all_profiles['azure_mgmt_billing']
 ```
-
 
 ## C#
 
